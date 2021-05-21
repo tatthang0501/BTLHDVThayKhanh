@@ -3,16 +3,14 @@ package hdvproject.api;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.lang.model.element.Element;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,8 +25,6 @@ import hdvproject.model.New;
 @RequestMapping("")
 public class PtitCrawler {
 
-    @Autowired
-    private Gson gson;
 
     @GetMapping(value = "/tintuc", produces = "application/json")
     public ResponseEntity<?> getNews(HttpServletRequest request, HttpServletResponse response) throws IOException {
