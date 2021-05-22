@@ -1,3 +1,4 @@
+drop database if exists dangkytinchi;
 CREATE DATABASE  IF NOT EXISTS `dangkytinchi` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `dangkytinchi`;
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
@@ -536,11 +537,7 @@ create table sinhvienlichhoc
     foreign key (msv) references sinhvien(msv),
     foreign key (lichhocid) references lichhoc(id)
 );
-drop table sinhvienlichhoc;
-drop table sinhvien;
-delete from sinhvien;
 select * from sinhvienlichhoc;
-delete from sinhvienlichhoc;
 insert into sinhvien(msv,username,password, ngaysinh, email, phone, ho, dem, ten)
 value ('B17DCCN563', 'thangnt', '123456', '19990105','tatthang0501@gmail.com','0337971060','Nguyen', 'Tat','Thang'), 
 ('B17DCCN335', 'kienpt', '123456', '19990720','kpham281@gmail.com','0369483211','Pham', 'Trung','Kien'),
@@ -550,5 +547,4 @@ value ('B17DCCN563', 'thangnt', '123456', '19990105','tatthang0501@gmail.com','0
 
 insert into sinhvienlichhoc(msv, lichhocid) values('B17DCCN563', 1), ('B17DCCN563', 6), ('B17DCCN563', 12), ('B17DCCN563', 16),('B17DCCN563', 21);
 insert into sinhvienlichhoc(msv, lichhocid) values('B17DCCN335', 1), ('B17DCCN335', 7), ('B17DCCN335', 14), ('B17DCCN335', 29), ('B17DCCN335', 43);
-
-
+select * from sinhvienlichhoc;

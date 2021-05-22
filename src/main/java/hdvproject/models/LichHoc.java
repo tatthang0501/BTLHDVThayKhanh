@@ -1,65 +1,14 @@
 package hdvproject.models;
 
-import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import org.springframework.lang.Nullable;
 
 import lombok.Data;
 
-@Data
-@Entity
-@Table(name="lichhoc")
-public class LichHoc implements Serializable{
-
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
-    
-    @Id
-    @Column(name="id")
-
-    private int id;
-    @Column(name="ten")
+public class LichHoc {
     private String ten;
-    
-    @JoinColumn(name="lhpid")
-    @ManyToOne(targetEntity = LopHocPhan.class, cascade = CascadeType.ALL)
-    private LopHocPhan lhp;
-
-    @OneToMany(mappedBy = "lh", cascade = CascadeType.ALL)
-    private List<TuanHoc> tuanHoc;
-
-    @OneToMany(mappedBy = "lh", cascade = CascadeType.ALL)
-    private List<NgayHoc> ngayHoc;
-
-    @OneToMany(mappedBy = "lh", cascade = CascadeType.ALL)
-    private List<KipHoc> kipHoc;
-
-    @Column(name="phong")
     private String phong;
+    private Integer ngayHoc;
+    private List<Integer> kipHoc;
+    private List<Integer> tuanHoc;
 
-    @Column(name="nhomth")
-    private int nhomTH;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "lh", cascade = CascadeType.ALL)
-    private List<SinhVienLichHoc> listSinhVienHoc;
-
-    @Nullable
-    @JoinColumn(name="giangvienid")
-    @ManyToOne(targetEntity = ThanhVien.class, cascade = CascadeType.ALL)
-    private ThanhVien gv;
 }
