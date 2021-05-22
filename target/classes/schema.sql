@@ -513,3 +513,42 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-05-22 20:20:06
+select * from thanhvien;
+create table sinhvien
+(
+	msv varchar(20) primary key,
+    username varchar(50),
+    password varchar(50),
+    ngaysinh date,
+    email varchar(30),
+    phone varchar(15),
+    ghichu varchar(50),
+    ho varchar(10),
+    dem varchar(10),
+    ten varchar(10)
+);
+
+create table sinhvienlichhoc
+(
+	id int primary key auto_increment,
+    msv varchar(20),
+    lichhocid int,
+    foreign key (msv) references sinhvien(msv),
+    foreign key (lichhocid) references lichhoc(id)
+);
+drop table sinhvienlichhoc;
+drop table sinhvien;
+delete from sinhvien;
+select * from sinhvienlichhoc;
+delete from sinhvienlichhoc;
+insert into sinhvien(msv,username,password, ngaysinh, email, phone, ho, dem, ten)
+value ('B17DCCN563', 'thangnt', '123456', '19990105','tatthang0501@gmail.com','0337971060','Nguyen', 'Tat','Thang'), 
+('B17DCCN335', 'kienpt', '123456', '19990720','kpham281@gmail.com','0369483211','Pham', 'Trung','Kien'),
+('B17DCCN369', 'khaivodoi', '123456', '19991202','khaihoang0212@gmail.com','0397918293','Hoang', 'Tang','Khai'),
+('B17DCCN432', 'minhbech', '123456', '19990405','bechculi@gmail.com','0345678910','Lai', 'Tan','Minh'),
+('B17DCCN674', 'phucho', '123456', '19991006','phucho@gmail.com','0367880163','Pham', 'Minh','Phuc');
+
+insert into sinhvienlichhoc(msv, lichhocid) values('B17DCCN563', 1), ('B17DCCN563', 6), ('B17DCCN563', 12), ('B17DCCN563', 16),('B17DCCN563', 21);
+insert into sinhvienlichhoc(msv, lichhocid) values('B17DCCN335', 1), ('B17DCCN335', 7), ('B17DCCN335', 14), ('B17DCCN335', 29), ('B17DCCN335', 43);
+
+
