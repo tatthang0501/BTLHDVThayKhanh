@@ -56,8 +56,10 @@ public class GetSchedule {
             HttpServletResponse response) throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        File file = new ClassPathResource("/json/SinhVienJSON.json").getFile();
-        List<SinhVien> list = Arrays.asList(objectMapper.readValue(file, SinhVien[].class));
+        // File file = new ClassPathResource("/json/SinhVienJSON.json").getFile();
+        // System.out.println(file.getPath());
+        File f = new File("./target/classes/json/SinhVienJSON.json");
+        List<SinhVien> list = Arrays.asList(objectMapper.readValue(f, SinhVien[].class));
         SinhVien tempSV = list.get(0);
         for (SinhVien sv : list) {
             if (msv.equals(sv.getMsv())) {
