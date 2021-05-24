@@ -68,6 +68,6 @@ public class GetSchedule {
             }
         }
 
-        return new ResponseEntity<>(tempSV.getTkb().get(18), HttpStatus.OK);
+        return new ResponseEntity<>(tempSV.getTkb().get(15), HttpStatus.OK);
     }
 }
