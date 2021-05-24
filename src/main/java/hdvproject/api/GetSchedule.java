@@ -37,12 +37,14 @@ public class GetSchedule {
             HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
+        String msvFind = msv.trim();
+        msvFind = msvFind.toUpperCase();
         File file = new ClassPathResource("json/SinhVienJSON.json").getFile();
         List<SinhVien> list = Arrays.asList(objectMapper.readValue(file, SinhVien[].class));
         System.out.println(list.size());
         SinhVien tempSV = list.get(0);
         for (SinhVien sv : list) {
-            if (msv.equals(sv.getMsv())) {
+            if (msvFind.equals(sv.getMsv())) {
                 tempSV = sv;
                 break;
             }
@@ -58,11 +60,14 @@ public class GetSchedule {
         ObjectMapper objectMapper = new ObjectMapper();
         // File file = new ClassPathResource("/json/SinhVienJSON.json").getFile();
         // System.out.println(file.getPath());
+
+        String msvFind = msv.trim();
+        msvFind = msvFind.toUpperCase();
         File f = new File("./target/classes/json/SinhVienJSON.json");
         List<SinhVien> list = Arrays.asList(objectMapper.readValue(f, SinhVien[].class));
         SinhVien tempSV = list.get(0);
         for (SinhVien sv : list) {
-            if (msv.equals(sv.getMsv())) {
+            if (msvFind.equals(sv.getMsv())) {
                 tempSV = sv;
                 break;
             }
